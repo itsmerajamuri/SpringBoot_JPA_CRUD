@@ -43,5 +43,33 @@ public class EmployeeConntroller {
 		employeeService.deleteById(id);
 		return "employee deleted successfully";
 	}
+	@GetMapping("/getByName/{name}")
+	public List<Employee> getByName(@PathVariable (value="name") String name) {
+		return employeeService.getEmployeeByName(name);
+	}
+	
+	@GetMapping("/orderByName")
+	public List<Employee> orderByName(){
+		return employeeService.orderByName();
+	}
+	
+	@GetMapping("/orderByNameAsc")
+	public List<Employee> orderByNameAsc(){
+		return employeeService.orderByNameByAsc();
+	}
+	
+	@GetMapping("/startsWith/{name}")
+	public List<Employee> stratsWith(@PathVariable(value = "name") String name){
+		return employeeService.startsWith(name);
+	}
+	
+	@GetMapping("/containing/{name}")
+	public List<Employee> containing(@PathVariable (value = "name") String name){
+		return employeeService.containing(name);
+	}
+	@GetMapping("/notContaining/{name}")
+	public List<Employee> notContaining(@PathVariable (value = "name") String name){
+		return employeeService.notContaining(name);
+	}
 
 }

@@ -40,5 +40,29 @@ public class EmployeeService {
 	public void deleteById(int id) {
 		 employeeRepo.deleteById(id);
 	}
+	
+	public List<Employee> getEmployeeByName(String name) {
+		return employeeRepo.findByName(name);
+	}
+	
+	public List<Employee> orderByName(){
+		return employeeRepo.findByOrderByNameDesc();
+	}
+	
+	public List<Employee> orderByNameByAsc(){
+		return employeeRepo.findByOrderByName();
+	}
+	
+	public List<Employee> startsWith(String name){
+		return employeeRepo.findByNameStartingWith(name);
+	}
+	
+	public List<Employee> containing(String name){
+		return employeeRepo.findByNameContaining(name);
+	}
+	
+	public List<Employee> notContaining(String name){
+		return employeeRepo.findByNameNotContaining(name);
+	}
 
 }
