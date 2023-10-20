@@ -2,12 +2,10 @@ package com.crud.entity;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,29 +15,17 @@ import lombok.ToString;
 @Entity
 @Setter
 @Getter
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @ToString
-public class Employee {
-	
+public class Role {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
-	private String name;
-	
-	private long phonenumber;
-	
-	private long salary;
-	
-	@OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-	@JoinColumn(name = "FkeyAddress")
-	private Address address;
-	
-	
-
-	
-	
+	private String type;
+	@ManyToOne(cascade = CascadeType.ALL)
+//	@JoinColumn(name = "EMP_F_KEY")
+	private Employee employee;
 	
 
 }
