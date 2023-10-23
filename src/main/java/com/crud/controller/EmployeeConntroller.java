@@ -21,7 +21,7 @@ public class EmployeeConntroller {
 	private EmployeeService  employeeService;
 	@PostMapping("/addEmp")
 	public Employee addEMplEmployee(@RequestBody Employee employee) {
-		return employeeService.addEmployee(employee);		
+		return employeeService.addEmployee(employee);
 	}
 	
 	@PutMapping("/updateEmp/{id}")

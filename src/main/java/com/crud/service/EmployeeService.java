@@ -8,15 +8,22 @@ import org.springframework.stereotype.Service;
 
 import com.crud.entity.Employee;
 import com.crud.repository.EmployeeRepo;
+import com.crud.repository.RoleRepo;
 
 @Service
 public class EmployeeService {
 
 	@Autowired
 	private EmployeeRepo employeeRepo;
+	@Autowired
+	private RoleRepo rolesRepo;
 
 	public Employee addEmployee(Employee employee) {
+		
+		
+		
 		return employeeRepo.save(employee);
+		
 	}
 
 	public Employee updateEmployee(Employee empl, int id) {
