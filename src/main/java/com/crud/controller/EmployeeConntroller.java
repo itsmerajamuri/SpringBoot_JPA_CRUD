@@ -3,19 +3,27 @@ package com.crud.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.crud.entity.Address;
 import com.crud.entity.Employee;
+import com.crud.repository.AddressRepo;
 import com.crud.service.EmployeeService;
 
 @RestController
 public class EmployeeConntroller {
+	
+	@Autowired
+	private AddressRepo addressRepo;
 	
 	@Autowired
 	private EmployeeService  employeeService;
@@ -72,5 +80,14 @@ public class EmployeeConntroller {
 		return employeeService.notContaining(name);
 	}
 	
+	/*
+	 * @PostMapping("/addEmpById/{id}") public void
+	 * addEmployeById(@PathVariable(value = "id") int id,@RequestBody Employee
+	 * employee) { Address add= addressRepo.findById(id).get();
+	 * 
+	 * employee.setAddress(add);
+	 * 
+	 * employeeService.addEmployee(employee); }
+	 */
 
 }

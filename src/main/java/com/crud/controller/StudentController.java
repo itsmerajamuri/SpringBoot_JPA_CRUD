@@ -1,6 +1,9 @@
 package com.crud.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,9 +18,14 @@ public class StudentController {
 	@Autowired
 	private StudentService studentService;
 	
-	@PostMapping("/addStud/{name}")
-	public Student addStudent(@RequestBody Student student,@PathVariable(value = "name") String courseName) {
-		return studentService.addStudent(student,courseName);
+	@PostMapping("/addStud/{coursename}")
+	public Student addStudent(@RequestBody Student student,@PathVariable(value = "coursename") List<String> courseNames) {
+		return studentService.addStudent(student,courseNames);
+	}
+	
+	@GetMapping("/allstudents")
+	public List<Student> getAllStudents(){
+		return studentService.getAllStudents();
 	}
 	
 }
