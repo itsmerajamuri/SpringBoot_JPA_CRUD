@@ -2,6 +2,9 @@ package com.crud.entity;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -29,7 +32,8 @@ public class Student {
 
 	private String name;
 
-	@ManyToMany(fetch = FetchType.EAGER)
+	@ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+	@JsonIgnore
 	@JoinTable(name = "Stud_Course", joinColumns = { @JoinColumn(name = "student_id") }, inverseJoinColumns = {
 			@JoinColumn(name = "Course_id") })
 	private List<Course> courses;

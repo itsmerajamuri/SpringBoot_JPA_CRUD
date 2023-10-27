@@ -26,9 +26,10 @@ public class Project {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	private String projectName;
-	@OneToMany(mappedBy = "project",cascade = CascadeType.ALL)
+
+	@OneToMany(mappedBy = "project", cascade = CascadeType.ALL)
 	@JsonIgnore
 	private List<Employe> employees;
 
