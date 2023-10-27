@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.crud.repository.CustomerRepo;
-import com.crud.repository.OrderRepo;
 
 @RestController
 public class CustomerController {
@@ -15,8 +14,7 @@ public class CustomerController {
 	@Autowired
 	private CustomerRepo customerRepo;
 	
-	@Autowired
-	private OrderRepo orderRepo;
+	
 	
 	@DeleteMapping("/deleteCCustomerBy/{id}")
 	public String deleteCustomer(@PathVariable(value="id") int id) {
