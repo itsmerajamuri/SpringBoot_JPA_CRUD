@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.crud.entity.Employee;
 import com.crud.service.EmployeeService;
 
+import jakarta.validation.Valid;
+
 @RestController
 public class EmployeeConntroller {
 	
@@ -21,7 +23,7 @@ public class EmployeeConntroller {
 	@Autowired
 	private EmployeeService  employeeService;
 	@PostMapping("/addEmp")
-	public Employee addEMplEmployee(@RequestBody Employee employee) {
+	public Employee addEMplEmployee(@Valid @RequestBody Employee employee) {
 		return employeeService.addEmployee(employee);
 	}
 	
